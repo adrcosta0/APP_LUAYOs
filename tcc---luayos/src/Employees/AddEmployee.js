@@ -65,10 +65,6 @@ useEffect(() => {
       if (jobsData) {
         const parsedJobs = JSON.parse(jobsData);
         setJobs(parsedJobs);
-        if (parsedJobs.length > 0) {
-          // Se houver cargos, selecione o primeiro por padrão
-          setSelectedJob(parsedJobs[0].title);
-        }
       }
     } catch (error) {
       console.error('Erro ao carregar cargos:', error);
@@ -174,6 +170,7 @@ useEffect(() => {
         selectedValue={selectedJob}
         onValueChange={(text) => setSelectedJob(text)}
       >
+        <Picker.Item label="Selecione o cargo" value=""/>
         {jobs.map((job) => (
           <Picker.Item key={job.id} label={job.title} value={job.title} />
         ))}
@@ -185,6 +182,7 @@ useEffect(() => {
         selectedValue={selectedBenefits1}
         onValueChange={(text) => setSelectedBenefits1(text)}
       >
+        <Picker.Item label="Selecione o benefício" value=""/>
         {benefits.map((benefit) => (
           <Picker.Item key={benefit.id} label={benefit.benef} value={benefits.benef} />
         ))}
@@ -196,6 +194,7 @@ useEffect(() => {
         selectedValue={selectedBenefits2}
         onValueChange={(text) => setSelectedBenefits2(text)}
       >
+          <Picker.Item label="Selecione o benefício" value=""/>
         {benefits.map((benefit) => (
           <Picker.Item key={benefit.id} label={benefit.benef} value={benefits.benef} />
         ))}
